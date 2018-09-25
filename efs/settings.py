@@ -22,8 +22,24 @@ SECRET_KEY = '3o=%h34wk)ncq3o@pq60^rrmu%v!eqx8vs1o0ca7uqimfj2(b0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'mavstaruno@gmail.com'
+    EMAIL_HOST_PASSWORD = '@mavstar123'
+    EMAIL_PORT = 587
+    DEFAULT_FROM_EMAIL = 'mavstaruno@gmail.com'
+    SERVER_EMAIL = 'mavstaruno@gmail.com'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 ALLOWED_HOSTS = ['*']
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
@@ -43,6 +59,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'mathfilters',
     'django.contrib.humanize',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
