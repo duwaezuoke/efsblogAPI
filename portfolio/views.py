@@ -233,28 +233,6 @@ def investment_delete(request, pk):
         return render(request, 'portfolio/investment_list.html', {'investments': investments})
 
 
-
-#def finance()
- #   print(st.symbol)
-  #  microsoft = Share('MSFT')
-   # return print(microsoft.get_price())
-
-
-# @login_required
-# def portfolio(request,pk):
-#    customer = get_object_or_404(Customer, pk=pk)
-#    customers = Customer.objects.filter(created_date__lte=timezone.now())
-#    investments =Investment.objects.filter(customer=pk)
-#    stocks = Stock.objects.filter(customer=pk)
-#    sum_acquired_value = Investment.objects.filter(customer=pk).aggregate(Sum('acquired_value'))
-#    sum_purchase_value= Stock.objects.filter(customer=pk).aggregate(total=Sum(F('purchase_price')*F('shares') ) )['total']
-#
-#
-#    return render(request, 'portfolio/portfolio.html', {'customers': customers, 'investments': investments,
-#                                                       'stocks': stocks,
-#                                                       'sum_acquired_value': sum_acquired_value,
-#                                                       'sum_purchase_value': sum_purchase_value,})
-
 @login_required
 def portfolio(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
@@ -287,4 +265,3 @@ def portfolio(request, pk):
                                                         'sum_of_initial_stock_value': sum_of_initial_stock_value,
                                                         'sum_fund_initial_value': sum_fund_initial_value,
                                                         'sum_fund_recent_value': sum_fund_recent_value})
-    

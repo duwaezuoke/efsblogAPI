@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'mathfilters',
     'django.contrib.humanize',
     'rest_framework',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
